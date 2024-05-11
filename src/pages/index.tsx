@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const images = {
@@ -28,9 +29,9 @@ const formItems = formArr.map((formItem) => (
 
 const navItems = contentArr.map((navItem) => (
   <li className="nav-item" key={navItem.id}>
-    <a href="">
+    <Link href="">
       <p>{navItem.title}</p>
-    </a>
+    </Link>
   </li>
 ));
 
@@ -38,9 +39,9 @@ function Navigation() {
   return (
     <div id="nav">
       <ul id="nav-bar">
-        <a className="nav-item" href="/">
+        <Link className="nav-item" href="/">
           <h1>Lucy Manalang</h1>
-        </a>
+        </Link>
         <NavHandler />
       </ul>
     </div>
@@ -74,9 +75,9 @@ export default function Home() {
               <p>
                 Computer Science Major | <br />
                 Studio Arts Minor <br />
-                <a className="link" href="macalester.edu" target="_blank">
+                <Link className="link" href="macalester.edu" target="_blank">
                   Macalester College
-                </a>{" "}
+                </Link>{" "}
                 <br />
                 Oakland, CA
               </p>
