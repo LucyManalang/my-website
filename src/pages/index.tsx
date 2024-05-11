@@ -42,25 +42,11 @@ function Navigation() {
         <Link className="nav-item" href="/">
           <h1>Lucy Manalang</h1>
         </Link>
-        <NavHandler />
+        {navItems}
       </ul>
     </div>
   );
 }
-
-const NavHandler = () => {
-  const [width, setWidth] = React.useState(window.innerWidth);
-  const breakpoint = 913;
-
-  React.useEffect(() => {
-    window.addEventListener("resize", () => setWidth(window.innerWidth));
-  }, []);
-
-  if (width < breakpoint) {
-    return <></>;
-  }
-  return <nav>{navItems}</nav>;
-};
 
 export default function Home() {
   return (
