@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Garamond';
+}
+
+h1 {
+  @apply font-bold text-4xl bg-gradient-to-br from-primary to-accent text-transparent bg-clip-text inline-block;
+}
+
+p {
+  @apply text-xl text-text;
+}
