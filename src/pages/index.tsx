@@ -74,7 +74,6 @@ export default function Home() {
               alt="Picture of me"
             />
           </div>
-          <div></div>
         </div>
         <div className="">
           <h1>About Me:</h1> <br />
