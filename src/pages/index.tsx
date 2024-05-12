@@ -1,39 +1,15 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import { MdLightMode, MdDarkMode } from 'react-icons/md';
+import { PiLinkedinLogo, PiGithubLogoLight } from 'react-icons/pi';
+import Link from 'next/link';
+import React from 'react';
+
+let lightMode = false;
 
 const images = {
-  portrait: "/res/portraitXXX.jpeg",
+  portrait: '/portrait.jpeg',
+  logo: '/macalesterlogo.png',
 };
-
-const formArr = [
-  { title: "Name", type: "text", autocomplete: "name", id: 1 },
-  { title: "Email", type: "email", autocomplete: "email", id: 2 },
-  { title: "Subject", type: "text", autocomplete: "none", id: 3 },
-];
-
-const contentArr = [
-  { title: "About me", id: 1 },
-  { title: "Links", id: 2 },
-  { title: "Contact me", id: 3 },
-];
-
-const formItems = formArr.map((formItem) => (
-  <input
-    className="form-item"
-    type={formItem.type}
-    placeholder={formItem.title}
-    key={formItem.id}
-  />
-));
-
-const navItems = contentArr.map((navItem) => (
-  <li className="nav-item" key={navItem.id}>
-    <Link href="">
-      <p>{navItem.title}</p>
-    </Link>
-  </li>
-));
 
 function Navigation() {
   return (
@@ -42,7 +18,28 @@ function Navigation() {
         <Link className="nav-item" href="/">
           <h1>Lucy Manalang</h1>
         </Link>
-        {navItems}
+        <li className="">
+          <Link href="">
+            <p>
+              <button>{lightMode ? <MdDarkMode /> : <MdLightMode />}</button>
+            </p>
+          </Link>
+        </li>
+        <li className="">
+          <Link href="">
+            <p>About</p>
+          </Link>
+        </li>
+        <li className="">
+          <Link href="">
+            <p>Projects</p>
+          </Link>
+        </li>
+        <li className="">
+          <Link href="">
+            <p>Content</p>
+          </Link>
+        </li>
       </ul>
     </div>
   );
@@ -51,30 +48,36 @@ function Navigation() {
 export default function Home() {
   return (
     <>
-      <main className="mx-20 my-10">
-        <div className="header">
-          <div className="info">
+      <main className="mx-40 my-40 flex flex-col gap-y-96">
+        <div className="flex justify-between">
+          <div>
+            <h1>Hi, I'm Lucy!</h1>
             <div>
-              <h1>Lucy Manalang</h1>
-            </div>
-            <div>
-              <p>
-                Computer Science Major | <br />
-                Studio Arts Minor <br />
-                <Link className="link" href="macalester.edu" target="_blank">
-                  Macalester College
-                </Link>{" "}
-                <br />
-                Oakland, CA
+              <p className="text-wrap">
+                I'm a Computer Science and Studio Art student at
+                <Link
+                  className="hover:text-secondary"
+                  href="https://www.macalester.edu/"
+                >
+                  {' '}
+                  <img className="w-5 inline" src={images.logo} />
+                  Macalester College{' '}
+                </Link>
+                based in Oakland, CA.
               </p>
             </div>
           </div>
-          <div className="portrait">
-            <img src={images.portrait} alt="Picture of me" />
+          <div>
+            <img
+              className="max-w-72"
+              src={images.portrait}
+              alt="Picture of me"
+            />
           </div>
+          <div></div>
         </div>
-        <div className="section">
-          <h1 id="about-me">About Me:</h1> <br />
+        <div className="">
+          <h1>About Me:</h1> <br />
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore,
             cum doloribus autem porro odio, dicta facilis reprehenderit dolor
@@ -83,7 +86,7 @@ export default function Home() {
           </p>
         </div>
         <div className="section">
-          <h1 id="links">Links:</h1> <br />
+          <h1>Projects:</h1> <br />
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore,
             cum doloribus autem porro odio, dicta facilis reprehenderit dolor
@@ -94,13 +97,10 @@ export default function Home() {
         <div className="contact">
           <div className="section">
             <h1>Contact Me:</h1>
+            <PiLinkedinLogo className="text-text text-6xl" />
+            <PiGithubLogoLight className="text-text text-6xl" />
             <br />
-            <p>Send me an email about anything!</p>
           </div>
-          <form>
-            <div className="form">{formItems}</div>
-            <input className="form-button" type="submit" placeholder="Submit" />
-          </form>
         </div>
       </main>
       <Navigation />

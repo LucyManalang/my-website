@@ -4,16 +4,12 @@
 
 :root {
   font-family: 'Garamond';
-  display: flex;
-  flex-direction: column;
-
-  --text: #e5eff1;
-  --background: #0F1926;
-  --primary: #95ced9;
-  --secondary: #257585;
-  --accent: #2eb9d5;
 }
 
 h1 {
-  @apply text-3xl bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] text-transparent bg-clip-text inline-block;
+  @apply font-bold text-4xl bg-gradient-to-br from-primary to-accent text-transparent bg-clip-text inline-block;
+}
+
+p {
+  @apply text-xl text-text;
 }
