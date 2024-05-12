@@ -51,10 +51,10 @@ export default function Home() {
       <main className="mx-40 my-40 flex flex-col gap-y-96">
         <div className="flex justify-between">
           <div>
-            <h1>Hi, I'm Lucy!</h1>
+            <h1>Hi, I&apos;m Lucy!</h1>
             <div>
               <p className="text-wrap">
-                I'm a Computer Science and Studio Art student at
+                I&apos;m a Computer Science and Studio Art student at
                 <Link
                   className="hover:text-secondary"
                   href="https://www.macalester.edu/"
