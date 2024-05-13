@@ -7,9 +7,19 @@
 }
 
 h1 {
-  @apply font-bold text-4xl bg-gradient-to-br from-primary to-accent text-transparent bg-clip-text inline-block;
+  @apply font-bold text-nowrap h-14 text-5xl bg-gradient-to-br from-primary to-accent text-transparent bg-clip-text inline-block;
 }
 
 p {
-  @apply text-xl text-text;
+  @apply text-xl;
+}
+
+@media screen and (max-width: 1021px) {
+  #hero {
+    margin-top: 2rem;
+    justify-content: center !important;
+  }
+}
+#hero {
+  justify-content: space-between;
 }
