@@ -2,8 +2,9 @@ import Image from 'next/image';
 import { useLocalStorage } from 'react-use';
 import { AiOutlineMoon, AiOutlineSun } from 'react-icons/ai';
 import { PiLinkedinLogo, PiGithubLogoLight } from 'react-icons/pi';
+import { HiMenuAlt2 } from 'react-icons/hi';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const images = {
   portrait: '/portrait.jpeg',
@@ -23,10 +24,10 @@ const socials = [
   },
 ];
 
-const socialItems = socials.map((social) => (
-  <li key={social.id} className="text-text text-6xl hover:text-secondary">
-    <Link href={social.link} target="_blank">
-      {social.logo}
+const socialItems = socials.map((item) => (
+  <li key={item.id} className="text-text text-6xl hover:text-secondary">
+    <Link href={item.link} target="_blank">
+      {item.logo}
     </Link>
   </li>
 ));
@@ -34,16 +35,42 @@ const socialItems = socials.map((social) => (
 const socialList = <ul className="inline-flex">{socialItems}</ul>;
 
 const Navigation = () => {
-  const [dark, toggleDark, remove] = useLocalStorage('dark', true);
+  const navItems = [
+    { name: 'About', tag: '#about-me', id: 1 },
+    { name: 'Projects', tag: '#projects', id: 2 },
+    { name: 'Contact', tag: '#contact', id: 3 },
+  ];
+
+  const navList = navItems.map((item) => (
+    <li key={item.id}>
+      <Link
+        onClick={(evt) => {
+          evt.preventDefault();
+          document
+            .querySelector(item.tag)
+            ?.scrollIntoView({ behavior: 'smooth' });
+        }}
+        href={item.tag}
+      >
+        <p className="h-max flex align-middle justify-center">{item.name}</p>
+      </Link>
+    </li>
+  ));
+
+  // const localVal = window.localStorage.getItem('dark');
+  // const saved = localVal != null ? localVal : true;
+  const [dark, toggleDark] = useLocalStorage('dark', true);
 
   return (
     <nav className="fixed top-0 w-screen border-b-2 border-secondary bg-base-200 drop-shadow-lg">
       <div className="flex flex-row flex-nowrap justify-between mx-3 my-1">
         <Link href="/">
-          <h1>Lucy Manalang</h1>
+          <h1 className="text-3xl flex justify-center items-center">
+            manalang.dev
+          </h1>
         </Link>
-        <div className="flex flex-row items-center gap-5">
-          <p className="w-8 flex align-middle justify-center hover:text-secondary">
+        <div className="flex flex-row items-center ">
+          <p className="w-8 flex align-middle justify-center hover:text-accent">
             <label className="swap swap-rotate items-center justify-center">
               <input
                 type="checkbox"
@@ -55,52 +82,16 @@ const Navigation = () => {
               <AiOutlineMoon className="text-xl swap-on" />
             </label>
           </p>
-          <ul className="flex flex-row items-center mr-4 gap-10">
-            <li>
-              <Link
-                onClick={(evt) => {
-                  evt.preventDefault();
-                  document
-                    .querySelector('#about-me')
-                    ?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                href="#about-me"
-              >
-                <p className="h-max flex align-middle justify-center hover:text-secondary">
-                  About
-                </p>
-              </Link>
-            </li>
-            <li>
-              <Link
-                onClick={(evt) => {
-                  evt.preventDefault();
-                  document
-                    .querySelector('#projects')
-                    ?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                href="#projects"
-              >
-                <p className="flex align-middle justify-center hover:text-secondary">
-                  Projects
-                </p>
-              </Link>
-            </li>
-            <li>
-              <Link
-                onClick={(evt) => {
-                  evt.preventDefault();
-                  document
-                    .querySelector('#contact')
-                    ?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                href="#contact"
-              >
-                <p className="flex align-middle justify-center hover:text-secondary">
-                  Contact
-                </p>
-              </Link>
-            </li>
+          <details id="nav-mobile" className="dropdown dropdown-end">
+            <summary className="shadow-none m-1 btn text-xl">
+              <HiMenuAlt2 />
+            </summary>
+            <ul className="p-2 menu dropdown-content bg-base-100 rounded-box">
+              {navList}
+            </ul>
+          </details>
+          <ul id="nav-desktop" className="p-2 menu bg-base-200 flex flex-row">
+            {navList}
           </ul>
         </div>
       </div>
@@ -130,7 +121,7 @@ const App = () => {
                 Oakland, CA.
               </p>
             </div>
-            <div className="mx-5 my-5">{socialList}</div>
+            <div className="m-5">{socialList}</div>
           </div>
           <div>
             <img
@@ -160,7 +151,11 @@ const App = () => {
         </div>
         <div id="contact" className="px-40 py-28 bg-base-200">
           <h1>Contact Me:</h1>
-          {socialList}
+          <p>
+            Feel free to send me a message over LinkedIn or take a look at my
+            GitHub!
+          </p>
+          <div className="m-5">{socialList}</div>
           <br />
         </div>
       </main>

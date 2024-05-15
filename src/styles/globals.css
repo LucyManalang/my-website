@@ -14,12 +14,29 @@ p {
   @apply text-xl;
 }
 
-@media screen and (max-width: 1021px) {
+@media screen and (max-width: 984px) {
   #hero {
-    margin-top: 2rem;
+    padding-top: 10rem;
     justify-content: center !important;
   }
+
+  #nav-mobile {
+    visibility: visible !important;
+    width: fit-content !important;
+  }
+
+  #nav-desktop {
+    visibility: hidden !important;
+    width: 0px !important;
+    height: 60px !important;
+  }
 }
+
+#nav-mobile {
+  visibility: hidden;
+  width: 0px;
+}
+
 #hero {
   justify-content: space-between;
 }
