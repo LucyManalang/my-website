@@ -130,7 +130,7 @@ const App = () => {
             />
           </div>
         </div>
-        <div id="about-me" className="px-40 py-28 bg-base-200">
+        <div id="about-me" className="section px-40 py-28 bg-base-200">
           <h1>About Me:</h1> <br />
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore,
@@ -139,7 +139,7 @@ const App = () => {
             possimus deserunt eaque vel.
           </p>
         </div>
-        <div id="projects" className="px-40 py-28">
+        <div id="projects" className="section px-40 py-28">
           <h1>Projects:</h1> <br />
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore,
@@ -148,7 +148,7 @@ const App = () => {
             possimus deserunt eaque vel.
           </p>
         </div>
-        <div id="contact" className="px-40 py-28 bg-base-200">
+        <div id="contact" className="section px-40 py-28 bg-base-200">
           <h1>Contact Me:</h1>
           <p>
             Feel free to send me a message over LinkedIn or take a look at my

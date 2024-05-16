@@ -16,8 +16,10 @@ p {
 
 @media screen and (max-width: 984px) {
   #hero {
-    padding-top: 10rem;
+    padding: 7rem 1.25rem 1.25rem 1.25rem;
     justify-content: center !important;
+    flex-direction: column-reverse;
+    align-items: center;
   }
 
   #nav-mobile {
@@ -29,6 +31,10 @@ p {
     visibility: hidden !important;
     width: 0px !important;
     height: 60px !important;
+  }
+
+  .section {
+    padding: 5rem 1.25rem 5rem 1.25rem !important;
   }
 }
 
