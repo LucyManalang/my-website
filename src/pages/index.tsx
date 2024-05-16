@@ -57,8 +57,6 @@ const Navigation = () => {
     </li>
   ));
 
-  // const localVal = window.localStorage.getItem('dark');
-  // const saved = localVal != null ? localVal : true;
   const [dark, toggleDark] = useLocalStorage('dark', true);
 
   return (
@@ -75,8 +73,9 @@ const Navigation = () => {
               <input
                 type="checkbox"
                 className="theme-controller"
-                value={dark ? 'mydark' : 'mylight'}
-                onClick={() => toggleDark(!dark)}
+                value={'mylight'}
+                checked={dark}
+                onChange={() => toggleDark(!dark)}
               />
               <AiOutlineSun className="text-xl fixed swap-off" />
               <AiOutlineMoon className="text-xl swap-on" />
