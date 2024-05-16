@@ -74,7 +74,7 @@ const Navigation = () => {
                 type="checkbox"
                 className="theme-controller"
                 value={'mylight'}
-                checked={dark}
+                checked={!dark}
                 onChange={() => toggleDark(!dark)}
               />
               <AiOutlineSun className="text-xl fixed swap-off" />
@@ -113,7 +113,13 @@ const App = () => {
                   href="https://www.macalester.edu/"
                 >
                   {' '}
-                  <img className="w-5 inline" src={images.logo} />
+                  <Image
+                    className="w-5 inline"
+                    src={images.logo}
+                    alt=""
+                    width={20}
+                    height={20}
+                  />
                   Macalester College{' '}
                 </Link>
                 and I am based in <br />
@@ -123,10 +129,12 @@ const App = () => {
             <div className="m-5">{socialList}</div>
           </div>
           <div>
-            <img
+            <Image
               className="max-w-72 rounded-[15px]"
               src={images.portrait}
               alt="Picture of me"
+              width={288}
+              height={288}
             />
           </div>
         </div>
