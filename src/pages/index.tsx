@@ -5,6 +5,8 @@ import { PiLinkedinLogo, PiGithubLogoLight } from 'react-icons/pi';
 import { HiMenuAlt2 } from 'react-icons/hi';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
+import { describe } from 'node:test';
+import { MdDescription } from 'react-icons/md';
 
 const images = {
   portrait: '/portrait.jpeg',
@@ -34,29 +36,75 @@ const socialItems = socials.map((item) => (
 
 const socialList = <ul className="inline-flex">{socialItems}</ul>;
 
+const projects = [
+  {
+    title: 'Test1',
+    image: images.logo,
+    link: 'https://github.com/LucyManalang',
+    description: 'test1',
+    id: 1,
+  },
+  {
+    title: 'Test2',
+    image: images.logo,
+    link: 'https://github.com/LucyManalang',
+    description: 'test2',
+    id: 2,
+  },
+  {
+    title: 'Test3',
+    image: images.logo,
+    link: 'https://github.com/LucyManalang',
+    description: 'test3',
+    id: 3,
+  },
+];
+
+const projectItems = projects.map((project) => (
+  <div
+    key={project.id}
+    className="carousel-item card card-compact w-96 bg-base-100 shadow-xl rounded-[10px]"
+  >
+    <figure>
+      <img src={project.image} alt={project.title} />
+    </figure>
+    <div className="card-body">
+      <h2 className="card-title">{project.title}</h2>
+      <p>{project.description}</p>
+      <div className="card-actions justify-end">
+        <button className="btn btn-primary">
+          <Link href={project.link} target="_blank">
+            Link
+          </Link>
+        </button>
+      </div>
+    </div>
+  </div>
+));
+
+const navItems = [
+  { name: 'About', tag: '#about-me', id: 1 },
+  { name: 'Projects', tag: '#projects', id: 2 },
+  { name: 'Contact', tag: '#contact', id: 3 },
+];
+
+const navList = navItems.map((item) => (
+  <li key={item.id}>
+    <Link
+      onClick={(evt) => {
+        evt.preventDefault();
+        document
+          .querySelector(item.tag)
+          ?.scrollIntoView({ behavior: 'smooth' });
+      }}
+      href={item.tag}
+    >
+      <p className="h-max flex align-middle justify-center">{item.name}</p>
+    </Link>
+  </li>
+));
+
 const Navigation = () => {
-  const navItems = [
-    { name: 'About', tag: '#about-me', id: 1 },
-    { name: 'Projects', tag: '#projects', id: 2 },
-    { name: 'Contact', tag: '#contact', id: 3 },
-  ];
-
-  const navList = navItems.map((item) => (
-    <li key={item.id}>
-      <Link
-        onClick={(evt) => {
-          evt.preventDefault();
-          document
-            .querySelector(item.tag)
-            ?.scrollIntoView({ behavior: 'smooth' });
-        }}
-        href={item.tag}
-      >
-        <p className="h-max flex align-middle justify-center">{item.name}</p>
-      </Link>
-    </li>
-  ));
-
   const [dark, toggleDark] = useLocalStorage('dark', true);
 
   return (
@@ -130,7 +178,7 @@ const App = () => {
           </div>
           <div>
             <Image
-              className="max-w-72 rounded-[15px]"
+              className="max-w-72 rounded-[5px]"
               src={images.portrait}
               alt="Picture of me"
               width={288}
@@ -149,12 +197,9 @@ const App = () => {
         </div>
         <div id="projects" className="section px-40 py-28">
           <h1>Projects:</h1> <br />
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore,
-            cum doloribus autem porro odio, dicta facilis reprehenderit dolor
-            dolore numquam assumenda ipsam eveniet placeat, veniam velit
-            possimus deserunt eaque vel.
-          </p>
+          <div className="carousel carousel-center w-full p-4 space-x-4 bg-base-200 rounded-[10px] drop-shadow-lg">
+            {projectItems}
+          </div>
         </div>
         <div id="contact" className="section px-40 py-28 bg-base-200">
           <h1>Contact Me:</h1>
