@@ -9,8 +9,11 @@ import { describe } from 'node:test';
 import { MdDescription } from 'react-icons/md';
 
 const images = {
-  portrait: '/portrait.jpeg',
-  logo: '/macalesterlogo.png',
+  portrait: '/images/Portrait.jpeg',
+  logo: '/images/MacalesterLogo.png',
+  boggle: '/images/Boggle.png',
+  sudoku: '/images/Sudoku.png',
+  betterDocs: '/images/BetterDocs.png',
 };
 
 const socials = [
@@ -38,24 +41,25 @@ const socialList = <ul className="inline-flex">{socialItems}</ul>;
 
 const projects = [
   {
-    title: 'Test1',
-    image: images.logo,
-    link: 'https://github.com/LucyManalang',
-    description: 'test1',
+    title: 'Boggle',
+    image: images.boggle,
+    link: 'https://github.com/LucyManalang/128-Boggle',
+    description: 'Play Boggle!',
     id: 1,
   },
   {
-    title: 'Test2',
-    image: images.logo,
-    link: 'https://github.com/LucyManalang',
-    description: 'test2',
+    title: 'Sudoku solver',
+    image: images.sudoku,
+    link: 'https://github.com/LucyManalang/221-Sudoku-Implementation',
+    description:
+      'Visualize how different Sudoku algorithms step through the problem!',
     id: 2,
   },
   {
-    title: 'Test3',
-    image: images.logo,
-    link: 'https://github.com/LucyManalang',
-    description: 'test3',
+    title: 'Better Docs',
+    image: images.betterDocs,
+    link: 'https://github.com/LucyManalang/Better-Docs',
+    description: 'Declutter google docs with this simple arc boost!',
     id: 3,
   },
 ];
@@ -63,10 +67,14 @@ const projects = [
 const projectItems = projects.map((project) => (
   <div
     key={project.id}
-    className="carousel-item card card-compact w-96 bg-base-100 shadow-xl rounded-[10px]"
+    className="carousel-item card card-compact w-80 bg-base-100 shadow-lg rounded-[10px] hover:drop-shadow-lg"
   >
-    <figure>
-      <img src={project.image} alt={project.title} />
+    <figure className="w-80 h-60 overflow-hidden border-b-2 border-secondary">
+      <img
+        src={project.image}
+        alt={project.title}
+        className="w-full h-full object-cover object-left-top"
+      />
     </figure>
     <div className="card-body">
       <h2 className="card-title">{project.title}</h2>
@@ -74,7 +82,7 @@ const projectItems = projects.map((project) => (
       <div className="card-actions justify-end">
         <button className="btn btn-primary">
           <Link href={project.link} target="_blank">
-            Link
+            See here!
           </Link>
         </button>
       </div>
