@@ -70,10 +70,12 @@ const projectItems = projects.map((project) => (
     className="carousel-item card card-compact w-80 bg-base-100 drop-shadow-md rounded-[10px]"
   >
     <figure className="w-80 h-60 overflow-hidden border-b-2 border-secondary">
-      <img
+      <Image
         src={project.image}
         alt={project.title}
         className="w-full h-full object-cover object-left-top"
+        width={320}
+        height={240}
       />
     </figure>
     <div className="card-body">
@@ -209,17 +211,17 @@ const App = () => {
           <h2 className="h-12">My Skills as a Programmer:</h2>
           <p>
             Through my experience as an artist, I try to apply an artistic eye
-            to make beautiful programs that are beautiful and follow good UI/UX
-            practices. Additionally, I focus on writing readable, expandable,
-            and efficient code and unit tests.
+            to make programs that are beautiful and follow good UI/UX practices.
+            Additionally, I focus on writing readable, expandable, and efficient
+            code and unit tests.
           </p>
           <h2 className="h-12">Community:</h2>
           <p>
             I am also very community oriented, as I am an RA for the 2024-2045
             academic year where I have built a community for incoming first-year
-            students. I also am co-leading Macalester's Class of 2028 Discord
-            Server and Instagram Page to allow incoming first-years to meet each
-            other before the school year begins.
+            students. I also am co-leading Macalester{"'"}s Class of 2028
+            Discord Server and Instagram Page to allow incoming first-years to
+            meet each other before the school year begins.
           </p>
           <h2 className="h-12">Work Experience:</h2>
           <p>...</p>
