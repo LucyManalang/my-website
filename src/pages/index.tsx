@@ -2,11 +2,10 @@ import Image from 'next/image';
 import { useLocalStorage } from 'react-use';
 import { AiOutlineMoon, AiOutlineSun } from 'react-icons/ai';
 import { PiLinkedinLogo, PiGithubLogoLight } from 'react-icons/pi';
+import { IoFileTrayFullOutline } from 'react-icons/io5';
 import { HiMenuAlt2 } from 'react-icons/hi';
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
-import { describe } from 'node:test';
-import { MdDescription } from 'react-icons/md';
+import React from 'react';
 
 const images = {
   portrait: '/images/Portrait.jpeg',
@@ -14,6 +13,7 @@ const images = {
   boggle: '/images/Boggle.png',
   sudoku: '/images/Sudoku.png',
   betterDocs: '/images/BetterDocs.png',
+  geoguessr: '/images/Geoguessr.png',
 };
 
 const socials = [
@@ -67,7 +67,7 @@ const projects = [
 const projectItems = projects.map((project) => (
   <div
     key={project.id}
-    className="carousel-item card card-compact w-80 bg-base-100 shadow-lg rounded-[10px] hover:drop-shadow-lg"
+    className="carousel-item card card-compact w-80 bg-base-100 drop-shadow-md rounded-[10px]"
   >
     <figure className="w-80 h-60 overflow-hidden border-b-2 border-secondary">
       <img
@@ -158,8 +158,11 @@ const App = () => {
   return (
     <>
       <main className="flex flex-col">
-        <div id="hero" className="px-40 pt-64 h-screen flex flex-wrap-reverse">
-          <div className="max-w-sm">
+        <div
+          id="hero"
+          className="px-48 pt-20 h-screen flex flex-wrap-reverse align-center"
+        >
+          <div className="my-5 max-w-sm">
             <h1>Hi, I{"'"}m Lucy!</h1>
             <div>
               <p className="text-nowrap">
@@ -194,22 +197,65 @@ const App = () => {
             />
           </div>
         </div>
-        <div id="about-me" className="section px-40 py-28 bg-base-200">
+        <div id="about-me" className="section bg-base-200">
           <h1>About Me:</h1> <br />
+          <h2 className="h-12">Quick Info:</h2>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore,
-            cum doloribus autem porro odio, dicta facilis reprehenderit dolor
-            dolore numquam assumenda ipsam eveniet placeat, veniam velit
-            possimus deserunt eaque vel.
+            I am a rising sophomore at Macalester College and I am highly
+            motivated and enthusiastic about computer programming. I am
+            currently working as an RA and as a lead teacher{"'"}s assistant at
+            Macalester College.
           </p>
+          <h2 className="h-12">My Skills as a Programmer:</h2>
+          <p>
+            Through my experience as an artist, I try to apply an artistic eye
+            to make beautiful programs that are beautiful and follow good UI/UX
+            practices. Additionally, I focus on writing readable, expandable,
+            and efficient code and unit tests.
+          </p>
+          <h2 className="h-12">Community:</h2>
+          <p>
+            I am also very community oriented, as I am an RA for the 2024-2045
+            academic year where I have built a community for incoming first-year
+            students. I also am co-leading Macalester's Class of 2028 Discord
+            Server and Instagram Page to allow incoming first-years to meet each
+            other before the school year begins.
+          </p>
+          <h2 className="h-12">Work Experience:</h2>
+          <p>...</p>
+          <h2 className="h-12">Fun Info:</h2>
+          <p>
+            I enjoy biking {'('}mountain and road{')'}, and I play ultimate
+            frisbee on my college club team, the Macalester Purse Snatchers.
+            Additionally, I am a highly rated
+            <Link
+              href="https://www.geoguessr.com/"
+              className="hover:text-secondary"
+            >
+              {' '}
+              <Image
+                className="w-5 inline pb-[5px]"
+                src={images.geoguessr}
+                alt=""
+                width={20}
+                height={20}
+              />
+              Geoguessr
+            </Link>{' '}
+            player.
+          </p>
+          <h2 className="h-12">Resume:</h2>
+          <button className="btn w-fit text-xl my-2">
+            <IoFileTrayFullOutline /> Lucy-Manalang-Resume
+          </button>
         </div>
-        <div id="projects" className="section px-40 py-28">
+        <div id="projects" className="section">
           <h1>Projects:</h1> <br />
           <div className="carousel carousel-center w-full p-4 space-x-4 bg-base-200 rounded-[10px] drop-shadow-lg">
             {projectItems}
           </div>
         </div>
-        <div id="contact" className="section px-40 py-28 bg-base-200">
+        <div id="contact" className="section bg-base-200">
           <h1>Contact Me:</h1>
           <p>
             Feel free to send me a message over LinkedIn or take a look at my
