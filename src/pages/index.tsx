@@ -1,11 +1,10 @@
 import { PiLinkedinLogo, PiGithubLogoLight } from 'react-icons/pi';
 import { AiOutlineMoon, AiOutlineSun } from 'react-icons/ai';
 import { IoFileTrayFullOutline } from 'react-icons/io5';
-import { FaLongArrowAltRight } from 'react-icons/fa';
 import { MdFileDownload } from 'react-icons/md';
+import { IoIosArrowBack } from 'react-icons/io';
 import { useLocalStorage } from 'react-use';
 import { HiMenuAlt2 } from 'react-icons/hi';
-import { Document, Page } from 'react-pdf';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -159,7 +158,17 @@ const Navigation = () => {
 };
 
 const App = () => {
-  const onClick = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const downloadResume = () => {
     const pdfUrl = '/res/Lucy-Manalang-Resume.pdf';
     const link = document.createElement('a');
     link.href = pdfUrl;
@@ -273,29 +282,36 @@ const App = () => {
           <h2 className="h-12">Resume:</h2>
           <button
             className="btn w-fit text-xl my-2 bg-base-100"
-            onClick={() => document.getElementById('my_modal_2').showModal()}
+            onClick={handleOpenModal}
           >
             <IoFileTrayFullOutline /> Lucy-Manalang-Resume
           </button>
-          <dialog id="my_modal_2" className="modal">
-            <div className="modal-box max-w-full h-screen bg-base-100 pt-5">
-              <div className="flex justify-between items-center pb-2">
-                <h3 className="font-bold text-lg">Lucy-Manalang-Resume</h3>
-                <button className="text-lg" onClick={onClick}>
-                  <MdFileDownload />
-                </button>
+          {isModalOpen && (
+            <dialog className="modal" open>
+              <div className="modal-box max-w-full h-screen bg-base-100 pt-5">
+                <div className="flex justify-between items-center pb-2">
+                  <h3 className="flex items-center gap-2 font-bold text-lg">
+                    <button onClick={handleCloseModal}>
+                      <IoIosArrowBack />
+                    </button>
+                    Lucy-Manalang-Resume
+                  </h3>
+                  <button className="text-lg" onClick={downloadResume}>
+                    <MdFileDownload />
+                  </button>
+                </div>
+                <iframe
+                  src="/res/Lucy-Manalang-Resume.pdf#toolbar=0"
+                  width="100%"
+                  height="95%"
+                  className="rounded-md"
+                ></iframe>
               </div>
-              <iframe
-                src="/res/Lucy-Manalang-Resume.pdf#toolbar=0"
-                width="100%"
-                height="95%"
-                className="rounded-md"
-              ></iframe>
-            </div>
-            <form method="dialog" className="modal-backdrop">
-              <button>close</button>
-            </form>
-          </dialog>
+              <form method="dialog" className="modal-backdrop">
+                <button onClick={handleCloseModal}>close</button>
+              </form>
+            </dialog>
+          )}
         </div>
         <div id="projects" className="section">
           <h1>Projects:</h1> <br />
