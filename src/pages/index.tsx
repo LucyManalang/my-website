@@ -1,19 +1,22 @@
-import Image from 'next/image';
-import { useLocalStorage } from 'react-use';
-import { AiOutlineMoon, AiOutlineSun } from 'react-icons/ai';
 import { PiLinkedinLogo, PiGithubLogoLight } from 'react-icons/pi';
+import { AiOutlineMoon, AiOutlineSun } from 'react-icons/ai';
 import { IoFileTrayFullOutline } from 'react-icons/io5';
+import { FaLongArrowAltRight } from 'react-icons/fa';
+import { MdFileDownload } from 'react-icons/md';
+import { useLocalStorage } from 'react-use';
 import { HiMenuAlt2 } from 'react-icons/hi';
+import { Document, Page } from 'react-pdf';
+import React, { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 
 const images = {
-  portrait: '/images/Portrait.jpeg',
-  logo: '/images/MacalesterLogo.png',
-  boggle: '/images/Boggle.png',
-  sudoku: '/images/Sudoku.png',
-  betterDocs: '/images/BetterDocs.png',
-  geoguessr: '/images/Geoguessr.png',
+  portrait: '/res/Portrait.jpeg',
+  logo: '/res/MacalesterLogo.png',
+  boggle: '/res/Boggle.png',
+  sudoku: '/res/Sudoku.png',
+  betterDocs: '/res/BetterDocs.png',
+  geoguessr: '/res/Geoguessr.png',
 };
 
 const socials = [
@@ -116,13 +119,12 @@ const navList = navItems.map((item) => (
 
 const Navigation = () => {
   const [dark, toggleDark] = useLocalStorage('dark', true);
-
   return (
     <nav className="fixed top-0 w-screen border-b-2 border-secondary bg-base-200 drop-shadow-lg">
       <div className="flex flex-row flex-nowrap justify-between mx-3 my-1">
         <Link href="/">
           <h1 className="text-3xl flex justify-center items-center">
-            manalang.dev
+            manalang.website
           </h1>
         </Link>
         <div className="flex flex-row items-center ">
@@ -157,6 +159,16 @@ const Navigation = () => {
 };
 
 const App = () => {
+  const onClick = () => {
+    const pdfUrl = '/res/Lucy-Manalang-Resume.pdf';
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = 'Lucy-Manalang-Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <>
       <main className="flex flex-col">
@@ -224,7 +236,19 @@ const App = () => {
             meet each other before the school year begins.
           </p>
           <h2 className="h-12">Work Experience:</h2>
-          <p>...</p>
+          <ul>
+            <li>
+              <p>
+                Data Structures Preceptor{':'} January 2024 {'→ '}Present
+              </p>
+            </li>
+            <li>
+              <p>Data Structures Head Preceptor{':'} Begins August 2024</p>
+            </li>
+            <li>
+              <p>Resident Assistant{':'} Begins August 2024</p>
+            </li>
+          </ul>
           <h2 className="h-12">Fun Info:</h2>
           <p>
             I enjoy biking {'('}mountain and road{')'}, and I play ultimate
@@ -247,9 +271,31 @@ const App = () => {
             player.
           </p>
           <h2 className="h-12">Resume:</h2>
-          <button className="btn w-fit text-xl my-2">
+          <button
+            className="btn w-fit text-xl my-2 bg-base-100"
+            onClick={() => document.getElementById('my_modal_2').showModal()}
+          >
             <IoFileTrayFullOutline /> Lucy-Manalang-Resume
           </button>
+          <dialog id="my_modal_2" className="modal">
+            <div className="modal-box max-w-full h-screen bg-base-100 pt-5">
+              <div className="flex justify-between items-center pb-2">
+                <h3 className="font-bold text-lg">Lucy-Manalang-Resume</h3>
+                <button className="text-lg" onClick={onClick}>
+                  <MdFileDownload />
+                </button>
+              </div>
+              <iframe
+                src="/res/Lucy-Manalang-Resume.pdf#toolbar=0"
+                width="100%"
+                height="95%"
+                className="rounded-md"
+              ></iframe>
+            </div>
+            <form method="dialog" className="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
         </div>
         <div id="projects" className="section">
           <h1>Projects:</h1> <br />

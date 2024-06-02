@@ -27,7 +27,7 @@ const config: Config = {
           'accent': '#50aa6f',
           'neutral': '#1c1c1c',
           'base-100': '#e6e6e6',
-          'base-200': '#D4D4D4',
+          'base-200': '#E0E0E0',
         },
       },
     ],
