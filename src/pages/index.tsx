@@ -248,7 +248,7 @@ const App = () => {
           <ul className="list-disc pl-4">
             <li>
               <p>
-                Chipotle{':'} January 2023 {'→ '}August 2024
+                Chipotle{':'} January 2023 {'→ '}August 2023
               </p>
             </li>
             <li>
