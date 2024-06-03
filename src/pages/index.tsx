@@ -50,7 +50,7 @@ const projects = [
     id: 1,
   },
   {
-    title: 'Sudoku solver',
+    title: 'Sudoku Solver',
     image: images.sudoku,
     link: 'https://github.com/LucyManalang/221-Sudoku-Implementation',
     description:
@@ -245,7 +245,12 @@ const App = () => {
             meet each other before the school year begins.
           </p>
           <h2 className="h-12">Work Experience:</h2>
-          <ul>
+          <ul className="list-disc pl-4">
+            <li>
+              <p>
+                Chipotle{':'} January 2023 {'→ '}August 2024
+              </p>
+            </li>
             <li>
               <p>
                 Data Structures Preceptor{':'} January 2024 {'→ '}Present
