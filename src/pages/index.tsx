@@ -124,7 +124,7 @@ const Navigation = () => {
       <div className="flex flex-row flex-nowrap justify-between mx-3 my-1">
         <Link href="/">
           <h1 className="text-3xl flex justify-center items-center">
-            manalang.website
+            manalang.me
           </h1>
         </Link>
         <div className="flex flex-row items-center ">
