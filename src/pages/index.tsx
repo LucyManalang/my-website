@@ -17,6 +17,7 @@ const images = {
   sudoku: '/res/Sudoku.png',
   betterDocs: '/res/BetterDocs.png',
   geoguessr: '/res/Geoguessr.png',
+  website: '/res/Website.jpeg',
 };
 
 const socials = [
@@ -64,6 +65,13 @@ const projects = [
     link: 'https://github.com/LucyManalang/Better-Docs',
     description: 'Declutter google docs with this simple arc boost!',
     id: 3,
+  },
+  {
+    title: 'Personal Portfolio Website',
+    image: images.website,
+    link: 'https://github.com/LucyManalang/my-website',
+    description: 'My personal website!',
+    id: 4,
   },
 ];
 
