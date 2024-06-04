@@ -1,6 +1,7 @@
 import { PiLinkedinLogo, PiGithubLogoLight } from 'react-icons/pi';
 import { AiOutlineMoon, AiOutlineSun } from 'react-icons/ai';
 import { IoFileTrayFullOutline } from 'react-icons/io5';
+import { CgArrowsExpandRight } from 'react-icons/cg';
 import { MdFileDownload } from 'react-icons/md';
 import { IoIosArrowBack } from 'react-icons/io';
 import { useLocalStorage } from 'react-use';
@@ -301,9 +302,14 @@ const App = () => {
                     </button>
                     Lucy-Manalang-Resume
                   </h3>
-                  <button className="text-lg" onClick={downloadResume}>
-                    <MdFileDownload />
-                  </button>
+                  <div className="inline-flex gap-2">
+                    <button className="text-lg" onClick={downloadResume}>
+                      <MdFileDownload />
+                    </button>
+                    <Link href="/resume" target="_blank">
+                      <CgArrowsExpandRight />
+                    </Link>
+                  </div>
                 </div>
                 <iframe
                   src="/res/Lucy-Manalang-Resume.pdf#toolbar=0"
