@@ -312,7 +312,7 @@ const App = () => {
                   </div>
                 </div>
                 <iframe
-                  src="/res/Lucy-Manalang-Resume.pdf#toolbar=0"
+                  src="/res/Lucy Manalang Resume.pdf#toolbar=0"
                   width="100%"
                   height="95%"
                   className="rounded-md"
