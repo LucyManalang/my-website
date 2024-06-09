@@ -1,24 +1,13 @@
 import { PiLinkedinLogo, PiGithubLogoLight } from 'react-icons/pi';
-import { AiOutlineMoon, AiOutlineSun } from 'react-icons/ai';
 import { IoFileTrayFullOutline } from 'react-icons/io5';
 import { CgArrowsExpandRight } from 'react-icons/cg';
+import Navigation from '../components/navigation';
+import Projects from '../components/projects';
 import { MdFileDownload } from 'react-icons/md';
 import { IoIosArrowBack } from 'react-icons/io';
-import { useLocalStorage } from 'react-use';
-import { HiMenuAlt2 } from 'react-icons/hi';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-const images = {
-  portrait: '/res/Portrait.jpeg',
-  logo: '/res/MacalesterLogo.png',
-  boggle: '/res/Boggle.png',
-  sudoku: '/res/Sudoku.png',
-  betterDocs: '/res/BetterDocs.png',
-  geoguessr: '/res/Geoguessr.png',
-  website: '/res/Website.jpeg',
-};
 
 const socials = [
   {
@@ -33,138 +22,17 @@ const socials = [
   },
 ];
 
-const socialItems = socials.map((item) => (
-  <li key={item.id} className="text-text text-6xl hover:text-secondary">
-    <Link href={item.link} target="_blank">
-      {item.logo}
-    </Link>
-  </li>
-));
-
-const socialList = <ul className="inline-flex">{socialItems}</ul>;
-
-const projects = [
-  {
-    title: 'Boggle',
-    image: images.boggle,
-    link: 'https://github.com/LucyManalang/128-Boggle',
-    description: 'Play Boggle!',
-    id: 1,
-  },
-  {
-    title: 'Sudoku Solver',
-    image: images.sudoku,
-    link: 'https://github.com/LucyManalang/221-Sudoku-Implementation',
-    description:
-      'Visualize how different Sudoku algorithms step through the problem!',
-    id: 2,
-  },
-  {
-    title: 'Better Docs',
-    image: images.betterDocs,
-    link: 'https://github.com/LucyManalang/Better-Docs',
-    description: 'Declutter google docs with this simple arc boost!',
-    id: 3,
-  },
-  {
-    title: 'Personal Portfolio Website',
-    image: images.website,
-    link: 'https://github.com/LucyManalang/my-website',
-    description: 'My personal website!',
-    id: 4,
-  },
-];
-
-const projectItems = projects.map((project) => (
-  <div
-    key={project.id}
-    className="carousel-item card card-compact w-80 bg-base-100 drop-shadow-md rounded-[10px]"
-  >
-    <figure className="w-80 h-60 overflow-hidden border-b-2 border-secondary">
-      <Image
-        src={project.image}
-        alt={project.title}
-        className="w-full h-full object-cover object-left-top"
-        width={320}
-        height={240}
-      />
-    </figure>
-    <div className="card-body">
-      <h2 className="card-title">{project.title}</h2>
-      <p>{project.description}</p>
-      <div className="card-actions justify-end">
-        <button className="btn btn-primary">
-          <Link href={project.link} target="_blank">
-            See here!
-          </Link>
-        </button>
-      </div>
-    </div>
-  </div>
-));
-
-const navItems = [
-  { name: 'About', tag: '#about-me', id: 1 },
-  { name: 'Projects', tag: '#projects', id: 2 },
-  { name: 'Contact', tag: '#contact', id: 3 },
-];
-
-const navList = navItems.map((item) => (
-  <li key={item.id}>
-    <Link
-      onClick={(evt) => {
-        evt.preventDefault();
-        document
-          .querySelector(item.tag)
-          ?.scrollIntoView({ behavior: 'smooth' });
-      }}
-      href={item.tag}
-    >
-      <p className="h-max flex align-middle justify-center">{item.name}</p>
-    </Link>
-  </li>
-));
-
-const Navigation = () => {
-  const [dark, toggleDark] = useLocalStorage('dark', true);
-  return (
-    <nav className="fixed top-0 w-screen border-b-2 border-secondary bg-base-200 drop-shadow-lg">
-      <div className="flex flex-row flex-nowrap justify-between mx-3 my-1">
-        <Link href="/">
-          <h1 className="text-3xl flex justify-center items-center">
-            manalang.me
-          </h1>
+const socialList = (
+  <ul className="inline-flex">
+    {socials.map((item) => (
+      <li key={item.id} className="text-text text-6xl hover:text-secondary">
+        <Link href={item.link} target="_blank">
+          {item.logo}
         </Link>
-        <div className="flex flex-row items-center ">
-          <p className="w-8 flex align-middle justify-center hover:text-accent">
-            <label className="swap swap-rotate items-center justify-center">
-              <input
-                type="checkbox"
-                className="theme-controller"
-                value={'mylight'}
-                checked={!dark}
-                onChange={() => toggleDark(!dark)}
-              />
-              <AiOutlineSun className="text-xl fixed swap-off" />
-              <AiOutlineMoon className="text-xl swap-on" />
-            </label>
-          </p>
-          <details id="nav-mobile" className="dropdown dropdown-end">
-            <summary className="shadow-none m-1 btn text-xl">
-              <HiMenuAlt2 />
-            </summary>
-            <ul className="p-2 menu dropdown-content bg-base-100 rounded-box">
-              {navList}
-            </ul>
-          </details>
-          <ul id="nav-desktop" className="p-2 menu bg-base-200 flex flex-row">
-            {navList}
-          </ul>
-        </div>
-      </div>
-    </nav>
-  );
-};
+      </li>
+    ))}
+  </ul>
+);
 
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -202,11 +70,12 @@ const App = () => {
                 <Link
                   className="hover:text-secondary"
                   href="https://www.macalester.edu/"
+                  target="_blank"
                 >
                   {' '}
                   <Image
                     className="w-5 inline"
-                    src={images.logo}
+                    src="/res/MacalesterLogo.png"
                     alt=""
                     width={20}
                     height={20}
@@ -222,7 +91,7 @@ const App = () => {
           <div>
             <Image
               className="max-w-72 rounded-[5px]"
-              src={images.portrait}
+              src="/res/Portrait.jpeg"
               alt="Picture of me"
               width={288}
               height={288}
@@ -280,11 +149,12 @@ const App = () => {
             <Link
               href="https://www.geoguessr.com/"
               className="hover:text-secondary"
+              target="_blank"
             >
               {' '}
               <Image
                 className="w-5 inline pb-[5px]"
-                src={images.geoguessr}
+                src="/res/Geoguessr.png"
                 alt=""
                 width={20}
                 height={20}
@@ -335,7 +205,7 @@ const App = () => {
         <div id="projects" className="section">
           <h1>Projects:</h1> <br />
           <div className="carousel carousel-center w-full p-4 space-x-4 bg-base-200 rounded-[10px] drop-shadow-lg">
-            {projectItems}
+            <Projects />
           </div>
         </div>
         <div id="contact" className="section bg-base-200">

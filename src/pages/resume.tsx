@@ -1,4 +1,4 @@
-const App = () => {
+const Resume = () => {
   return (
     <div className="w-screen h-screen">
       <iframe
@@ -10,4 +10,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Resume;
