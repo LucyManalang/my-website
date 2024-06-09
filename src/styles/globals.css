@@ -58,6 +58,10 @@ p {
   .section {
     padding: 5rem 1.25rem 5rem 1.25rem !important;
   }
+
+  .arcade {
+    height: 24rem !important;
+  }
 }
 
 #nav-mobile {
@@ -75,4 +79,8 @@ p {
 
 #hero {
   align-content: center;
+}
+
+.arcade {
+  height: 45rem;
 }

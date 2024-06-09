@@ -52,9 +52,9 @@ export default function Projects() {
         <h2 className="card-title">{project.title}</h2>
         <p>{project.description}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">
-            <Link href={project.link}>See here!</Link>
-          </button>
+          <Link href={project.link} className="btn btn-primary">
+            See here!
+          </Link>
         </div>
       </div>
     </div>

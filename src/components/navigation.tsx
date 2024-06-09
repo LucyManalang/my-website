@@ -1,9 +1,7 @@
-import { AiOutlineMoon, AiOutlineSun } from 'react-icons/ai';
-import { useLocalStorage } from 'react-use';
-import { HiMenuAlt2 } from 'react-icons/hi';
 import DarkMode from '../components/darkmode';
-import React from 'react';
+import { HiMenuAlt2 } from 'react-icons/hi';
 import Link from 'next/link';
+import React from 'react';
 
 export default function Navigation() {
   const navItems = [
@@ -27,8 +25,6 @@ export default function Navigation() {
       </Link>
     </li>
   ));
-
-  const [dark, toggleDark] = useLocalStorage('dark', true);
 
   return (
     <nav className="fixed top-0 w-screen border-b-2 border-secondary bg-base-200 drop-shadow-lg">

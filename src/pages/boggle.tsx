@@ -1,4 +1,5 @@
 import { IoIosArrowBack } from 'react-icons/io';
+import ProjectHeader from '../components/projectHeader';
 import DarkMode from '../components/darkmode';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -6,7 +7,7 @@ import React from 'react';
 
 const Boggle = () => {
   return (
-    <div className="mb-20">
+    <>
       <div className="section">
         <h1>Boggle!</h1>
         <h2 className="h-12">Overview:</h2>
@@ -26,7 +27,7 @@ const Boggle = () => {
           the game with extra features for the players. This project was coded
           using Java and{' '}
           <Link
-            className="hover:text-secondary"
+            className="text-nowrap hover:text-secondary"
             href="https://mac-comp127.github.io/kilt-graphics/edu/macalester/graphics/package-summary.html"
             target="_blank"
           >
@@ -44,42 +45,40 @@ const Boggle = () => {
         <h2 className="h-12">Features:</h2>
         <ul className="list-disc pl-4">
           <li>
-            <p>Seed:</p>
+            <p>
+              Seed: Using our seed feature, multiple users can play with the
+              same seed. This was a simple solution for multiplayer, as an
+              online multiplayer was not necessary for our project guidelines.
+            </p>
           </li>
           <li>
-            <p>Solver:</p>
+            <p>
+              Solver: We created a solver for Boggle that found every possible
+              word using a set dictionary. This helped with scoring and added an
+              extra level of complexity to the project.
+            </p>
           </li>
           <li>
-            <p>Score Page:</p>
+            <p>
+              Score Page: We added a score page to automatically score all words
+              a player found.
+            </p>
           </li>
         </ul>
         <h2 className="h-12">Showcase:</h2>
-        {/* <div
-          className="relative h-0 w-full"
-          //   style={
-          //     'position: relative; padding-bottom: calc(76.18556701030927% + 41px); height: 0; width: 100%;'
-          //   }
-        >
+        <div className="h-full w-full mt-2">
           <iframe
             src="https://demo.arcade.software/uOX8EPvCVdX29RCuio0l?embed&show_copy_link=true"
             title="Boggle"
             loading="lazy"
             allowFullScreen
             allow="clipboard-write"
-            className="absolute top-0 left-0 h-fit w-full"
-            // style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;color-scheme: light;"
+            className="arcade top-0 left-0 w-full"
           ></iframe>
-        </div> */}
+        </div>
       </div>
-      <div className="flex justify-between w-screen fixed top-8 px-8">
-        <Link href="../#projects">
-          <p>
-            <IoIosArrowBack />
-          </p>
-        </Link>
-        <DarkMode />
-      </div>
-    </div>
+      <ProjectHeader />
+    </>
   );
 };
 
