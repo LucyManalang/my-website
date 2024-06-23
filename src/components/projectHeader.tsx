@@ -8,9 +8,11 @@ export default function ProjectHeader() {
     <nav className="fixed top-0 w-screen border-b-2 border-secondary bg-base-200 drop-shadow-lg h-12 flex items-center">
       <div className="flex justify-between w-screen px-8">
         <Link href="../#projects">
-          <p>
-            <IoIosArrowBack />
-          </p>
+          <div className="p-2 flex items-center rounded-md hover:bg-base-100">
+            <p>
+              <IoIosArrowBack />
+            </p>
+          </div>
         </Link>
         <DarkMode />
       </div>

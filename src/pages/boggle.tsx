@@ -1,6 +1,4 @@
-import { IoIosArrowBack } from 'react-icons/io';
 import ProjectHeader from '../components/projectHeader';
-import DarkMode from '../components/darkmode';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -10,7 +8,7 @@ const Boggle = () => {
     <>
       <div className="section">
         <h1>Boggle!</h1>
-        <h2 className="h-12">Overview:</h2>
+        <h2>Overview:</h2>
         <p>
           For our final project in COMP 128, {'('}Data Structures{')'}, I worked
           with May Kinnamon and Miri Leonard to create our own version of Parker
@@ -32,7 +30,7 @@ const Boggle = () => {
             target="_blank"
           >
             <Image
-              className="w-5 inline"
+              className="inline pb-[5px]"
               src="/res/MacalesterLogo.png"
               alt=""
               width={20}
@@ -42,7 +40,7 @@ const Boggle = () => {
           </Link>
           .
         </p>
-        <h2 className="h-12">Features:</h2>
+        <h2>Features:</h2>
         <ul className="list-disc pl-4">
           <li>
             <p>
@@ -65,7 +63,7 @@ const Boggle = () => {
             </p>
           </li>
         </ul>
-        <h2 className="h-12">Showcase:</h2>
+        <h2>Showcase:</h2>
         <div className="h-full w-full mt-2">
           <iframe
             src="https://demo.arcade.software/uOX8EPvCVdX29RCuio0l?embed&show_copy_link=true"

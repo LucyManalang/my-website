@@ -66,15 +66,14 @@ const App = () => {
             <h1>Hi, I{"'"}m Lucy!</h1>
             <div>
               <p className="text-nowrap">
-                I{"'"}m a Computer Science and Studio Art student <br /> at
+                I{"'"}m a Computer Science and Studio Art student <br /> at{' '}
                 <Link
                   className="hover:text-secondary"
                   href="https://www.macalester.edu/"
                   target="_blank"
                 >
-                  {' '}
                   <Image
-                    className="w-5 inline"
+                    className="inline pb-[5px]"
                     src="/res/MacalesterLogo.png"
                     alt=""
                     width={20}
@@ -100,21 +99,21 @@ const App = () => {
         </div>
         <div id="about-me" className="section bg-base-200">
           <h1>About Me:</h1> <br />
-          <h2 className="h-12">Quick Info:</h2>
+          <h2>Quick Info:</h2>
           <p>
             I am a rising sophomore at Macalester College and I am highly
             motivated and enthusiastic about computer programming. I am
             currently working as an RA and as a lead teacher{"'"}s assistant at
             Macalester College.
           </p>
-          <h2 className="h-12">My Skills as a Programmer:</h2>
+          <h2>My Skills as a Programmer:</h2>
           <p>
             Through my experience as an artist, I try to apply an artistic eye
             to make programs that are beautiful and follow good UI/UX practices.
             Additionally, I focus on writing readable, expandable, and efficient
             code and unit tests.
           </p>
-          <h2 className="h-12">Community:</h2>
+          <h2>Community:</h2>
           <p>
             I am also very community oriented, as I am an RA for the 2024-2045
             academic year where I have built a community for incoming first-year
@@ -122,7 +121,7 @@ const App = () => {
             Discord Server and Instagram Page to allow incoming first-years to
             meet each other before the school year begins.
           </p>
-          <h2 className="h-12">Work Experience:</h2>
+          <h2>Work Experience:</h2>
           <ul className="list-disc pl-4">
             <li>
               <p>
@@ -141,7 +140,7 @@ const App = () => {
               <p>Resident Assistant{':'} Begins August 2024</p>
             </li>
           </ul>
-          <h2 className="h-12">Fun Info:</h2>
+          <h2>Fun Info:</h2>
           <p>
             I enjoy biking {'('}mountain and road{')'}, and I play ultimate
             frisbee on my college club team, the Macalester Purse Snatchers.
@@ -153,7 +152,7 @@ const App = () => {
             >
               {' '}
               <Image
-                className="w-5 inline pb-[5px]"
+                className="inline pb-[5px]"
                 src="/res/Geoguessr.png"
                 alt=""
                 width={20}
@@ -163,7 +162,7 @@ const App = () => {
             </Link>{' '}
             player.
           </p>
-          <h2 className="h-12">Resume:</h2>
+          <h2>Resume:</h2>
           <button
             className="btn w-fit text-xl my-2 bg-base-100"
             onClick={handleOpenModal}

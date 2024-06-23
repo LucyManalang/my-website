@@ -12,9 +12,9 @@ const projectList = [
   {
     title: 'Sudoku Solver',
     image: '/res/Sudoku.png',
-    link: 'https://github.com/LucyManalang/221-Sudoku-Implementation',
+    link: '/sudoku',
     description:
-      'Visualize how different Sudoku algorithms step through the problem!',
+      'Visualize how different Sudoku solving algorithms step through the problem!',
     id: 2,
   },
   {
@@ -49,7 +49,7 @@ export default function Projects() {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{project.title}</h2>
+        <h2 className="card-title h-8">{project.title}</h2>
         <p>{project.description}</p>
         <div className="card-actions justify-end">
           <Link href={project.link} className="btn btn-primary">
