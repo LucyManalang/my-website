@@ -137,7 +137,7 @@ const App = () => {
               <p>Data Structures Head Preceptor{':'} Begins August 2024</p>
             </li>
             <li>
-              <p>Resident Assistant{':'} Begins August 2024</p>
+              <p>Resident Advisor{':'} Begins August 2024</p>
             </li>
           </ul>
           <h2>Fun Info:</h2>
