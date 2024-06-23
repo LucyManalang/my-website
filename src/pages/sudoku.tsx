@@ -25,8 +25,8 @@ const Sudoku = () => {
           <li>
             <p>
               Brute force - The basic sudoku solver, essentially guess and
-              check. Takes exponential time so don't expect to use this to solve
-              anything bigger than a 25x25 board.
+              check. Takes exponential time so don{"'"}t expect to use this to
+              solve anything bigger than a 25x25 board.
             </p>
           </li>
           <li>
