@@ -1,3 +1,5 @@
+'use client';
+
 import { PiLinkedinLogo, PiGithubLogoLight } from 'react-icons/pi';
 import { IoFileTrayFullOutline } from 'react-icons/io5';
 import { CgArrowsExpandRight } from 'react-icons/cg';
@@ -7,6 +9,7 @@ import { MdFileDownload } from 'react-icons/md';
 import { IoIosArrowBack } from 'react-icons/io';
 import React, { useState } from 'react';
 import Image from 'next/image';
+import '../styles/globals.css';
 import Link from 'next/link';
 
 const socials = [

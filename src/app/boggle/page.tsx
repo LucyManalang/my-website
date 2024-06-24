@@ -1,5 +1,8 @@
-import ProjectHeader from '../components/projectHeader';
+'use client';
+
+import ProjectHeader from '../../components/projectHeader';
 import Image from 'next/image';
+import '../../styles/globals.css';
 import Link from 'next/link';
 import React from 'react';
 
