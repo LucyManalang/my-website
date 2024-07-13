@@ -3,7 +3,12 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 
 export default function DarkMode() {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') ?? 'mydark');
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') ?? 'mydark';
+    }
+    return 'mydark';
+  });
 
   const handleToggle = (e: any) => {
     if (e.target.checked) {
@@ -14,9 +19,11 @@ export default function DarkMode() {
   };
 
   useEffect(() => {
-    localStorage.setItem('theme', theme!);
-    const localTheme = localStorage.getItem('theme');
-    document.querySelector('html')?.setAttribute('data-theme', localTheme!);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', theme);
+      const localTheme = localStorage.getItem('theme');
+      document.querySelector('html')?.setAttribute('data-theme', localTheme!);
+    }
   }, [theme]);
 
   return (
