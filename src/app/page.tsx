@@ -68,8 +68,8 @@ const App = () => {
           <div className="my-5 max-w-sm">
             <h1>Hi, I{"'"}m Lucy!</h1>
             <div>
-              <p className="text-nowrap">
-                I{"'"}m a Computer Science and Studio Art student <br /> at{' '}
+              <p>
+                I{"'"}m a Computer Science and Studio Art student at{' '}
                 <Link
                   className="hover:text-secondary"
                   href="https://www.macalester.edu/"
@@ -84,8 +84,7 @@ const App = () => {
                   />
                   Macalester College{' '}
                 </Link>
-                and I am based in <br />
-                Oakland, CA.
+                and I am based in Oakland, CA.
               </p>
             </div>
             <div className="m-5">{socialList}</div>
