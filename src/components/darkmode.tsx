@@ -1,22 +1,30 @@
 import { AiOutlineMoon, AiOutlineSun } from 'react-icons/ai';
-import { useLocalStorage } from 'react-use';
+import { useState, useEffect } from 'react';
 import React from 'react';
 
 export default function DarkMode() {
-  const [dark, toggleDark] = useLocalStorage('darkmode', true);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') ?? 'mydark');
+
+  const handleToggle = (e: any) => {
+    if (e.target.checked) {
+      setTheme('mydark');
+    } else {
+      setTheme('mylight');
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme!);
+    const localTheme = localStorage.getItem('theme');
+    document.querySelector('html')?.setAttribute('data-theme', localTheme!);
+  }, [theme]);
 
   return (
     <p className="w-8 flex align-middle justify-center hover:text-accent">
-      <label className="swap swap-rotate items-center justify-center">
-        <input
-          type="checkbox"
-          className="theme-controller"
-          value={'mylight'}
-          checked={!dark}
-          onChange={() => toggleDark(!dark)}
-        />
-        <AiOutlineSun className="text-xl fixed swap-off" />
+      <label className="swap swap-rotate">
+        <input type="checkbox" onChange={handleToggle} />
         <AiOutlineMoon className="text-xl swap-on" />
+        <AiOutlineSun className="text-xl fixed swap-off" />
       </label>
     </p>
   );

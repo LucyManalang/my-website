@@ -63,7 +63,7 @@ const App = () => {
       <main className="flex flex-col">
         <div
           id="hero"
-          className="px-48 pt-20 h-screen flex flex-wrap-reverse align-center"
+          className="px-48 pt-20 h-screen min-h-[708px] flex flex-wrap-reverse align-center"
         >
           <div className="my-5 max-w-sm">
             <h1>Hi, I{"'"}m Lucy!</h1>
