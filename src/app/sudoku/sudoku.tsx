@@ -29,6 +29,19 @@ export const Sudoku: React.FC = () => {
     }
   };
 
+  const handleValueChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      const [rowIndex, colIndex] = name.split('-');
+      const newBoard = [...board];
+      newBoard[Number(rowIndex)][Number(colIndex)] = Number(
+        value === '' ? 0 : value.slice(0, 1),
+      );
+      setBoard(newBoard);
+    },
+    [board],
+  );
+
   const columns = useCallback(
     (row: number[], rowIndex: number) => {
       return row.map((col, colIndex) => {
@@ -58,27 +71,15 @@ export const Sudoku: React.FC = () => {
         );
       });
     },
-    [board],
+    [board, handleValueChange],
   );
 
-  const handleValueChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const { name, value } = e.target;
-      const [rowIndex, colIndex] = name.split('-');
-      const newBoard = [...board];
-      newBoard[Number(rowIndex)][Number(colIndex)] = Number(
-        value === '' ? 0 : value.slice(0, 1),
-      );
-      setBoard(newBoard);
-    },
-    [board],
-  );
-  console.log(JSON.stringify(board, null));
   return (
     <div className="w-min">
       <div className="w-min">
         {board.map((row, rowIndex) => (
           <div
+            key={rowIndex}
             id={`${rowIndex}`}
             className={clsx('flex flex-row', {
               'border-b-2': (rowIndex + 1) % 3 === 0 && rowIndex !== 8,
