@@ -1,16 +1,18 @@
 'use client';
 
-import { PiLinkedinLogo, PiGithubLogoLight } from 'react-icons/pi';
 import { IoFileTrayFullOutline } from 'react-icons/io5';
-import { CgArrowsExpandRight } from 'react-icons/cg';
-import Navigation from '../components/navigation';
-import Projects from '../components/projects';
+import { PiLinkedinLogo, PiGithubLogoLight } from 'react-icons/pi';
 import { MdFileDownload } from 'react-icons/md';
+import { CgArrowsExpandRight } from 'react-icons/cg';
 import { IoIosArrowBack } from 'react-icons/io';
+
 import React, { useState } from 'react';
 import Image from 'next/image';
-import '../styles/globals.css';
 import Link from 'next/link';
+
+import Projects from '../components/projects';
+import '../styles/globals.css';
+import Navigation from '../components/navigation';
 
 const socials = [
   {

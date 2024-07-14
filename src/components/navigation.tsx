@@ -1,7 +1,9 @@
-import DarkMode from '../components/darkmode';
 import { HiMenuAlt2 } from 'react-icons/hi';
+
 import Link from 'next/link';
 import React from 'react';
+
+import DarkMode from '../components/darkmode';
 
 export default function Navigation() {
   const navItems = [

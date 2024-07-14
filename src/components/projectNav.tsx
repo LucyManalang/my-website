@@ -1,7 +1,9 @@
 import { IoIosArrowBack } from 'react-icons/io';
-import DarkMode from '../components/darkmode';
+
 import Link from 'next/link';
 import React from 'react';
+
+import DarkMode from './darkmode';
 
 export default function ProjectHeader() {
   return (

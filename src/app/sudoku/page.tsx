@@ -1,13 +1,16 @@
 'use client';
 
-import ProjectHeader from '../../components/projectHeader';
 import { PiGithubLogoLight } from 'react-icons/pi';
+
 import Image from 'next/image';
-import '../../styles/globals.css';
 import Link from 'next/link';
 import React from 'react';
 
-const Sudoku = () => {
+import '../../styles/globals.css';
+import ProjectNav from '../../components/projectNav';
+import { Sudoku } from './sudoku';
+
+const Page = () => {
   return (
     <>
       <div className="section">
@@ -81,7 +84,9 @@ const Sudoku = () => {
           </li>
         </ul>
         <h2>Showcase:</h2>
-        <div className="inline-flex gap-5">
+        <Sudoku />
+
+        {/* <div className="inline-flex gap-5">
           <div>
             <p>Brute Force Solver:</p>
             <Image
@@ -102,16 +107,16 @@ const Sudoku = () => {
               height={200}
             ></Image>
           </div>
-        </div>
-        <div className="pt-5 text-text text-4xl hover:text-secondary">
-          <Link href="" target="_blank">
+        </div> */}
+        <div className="pt-5 w-min text-text text-4xl">
+          <Link className="hover:text-secondary" href="" target="_blank">
             <PiGithubLogoLight />
           </Link>
         </div>
       </div>
-      <ProjectHeader />
+      <ProjectNav />
     </>
   );
 };
 
-export default Sudoku;
+export default Page;

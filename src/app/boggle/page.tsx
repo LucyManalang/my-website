@@ -1,10 +1,11 @@
 'use client';
 
-import ProjectHeader from '../../components/projectHeader';
 import Image from 'next/image';
-import '../../styles/globals.css';
 import Link from 'next/link';
 import React from 'react';
+
+import '../../styles/globals.css';
+import ProjectNav from '../../components/projectNav';
 
 const Boggle = () => {
   return (
@@ -78,7 +79,7 @@ const Boggle = () => {
           ></iframe>
         </div>
       </div>
-      <ProjectHeader />
+      <ProjectNav />
     </>
   );
 };
