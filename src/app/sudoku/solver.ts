@@ -80,47 +80,6 @@ function SolveSudoku(grid: number[][], i: number, j: number) {
   return false;
 }
 
-export default function Solve(grid: number[][]): boolean | null {
-  const timeLimit = 3000;
-  let solved = false;
-  const startTime = Date.now();
-
-  function attemptSolve() {
-    if (Date.now() - startTime < timeLimit) {
-      solved = SolveSudoku(grid, 0, 0);
-    }
-  }
-
-  attemptSolve();
-
-  // Set a timeout to terminate if the time limit is exceeded
-  const timer = setTimeout(() => {
-    if (!solved) {
-      console.log(`Time limit of ${timeLimit} ms exceeded.`);
-      return null;
-    }
-  }, timeLimit);
-
-  // Clear the timeout if solved within the time limit
-  if (solved) {
-    clearTimeout(timer);
-    return true;
-  }
-
-  return null; // Return null if the time limit was exceeded
+export default function Solve(grid: number[][]) {
+  return SolveSudoku(grid, 0, 0);
 }
-
-// Driver Code
-
-// 0 means unassigned cells
-let grid = [
-  [3, 0, 6, 5, 0, 8, 4, 0, 0],
-  [5, 2, 0, 0, 0, 0, 0, 0, 0],
-  [0, 8, 7, 0, 0, 0, 0, 3, 1],
-  [0, 0, 3, 0, 1, 0, 0, 8, 0],
-  [9, 0, 0, 8, 6, 3, 0, 0, 5],
-  [0, 5, 0, 0, 9, 0, 6, 0, 0],
-  [1, 3, 0, 0, 0, 0, 2, 5, 0],
-  [0, 0, 0, 0, 0, 0, 0, 7, 4],
-  [0, 0, 5, 2, 0, 6, 3, 0, 0],
-];
