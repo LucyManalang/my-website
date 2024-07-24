@@ -26,6 +26,8 @@ export const Sudoku: React.FC = () => {
       setBoard(newBoard);
     } else {
       alert('No solution found');
+      console.log(newBoard, null);
+      console.log(emptyBoard, null);
     }
   };
 
