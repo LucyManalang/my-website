@@ -80,19 +80,35 @@ function SolveSudoku(grid: number[][], i: number, j: number) {
   return false;
 }
 
-export default function Solve(grid: number[][]) {
-  return SolveSudoku(grid, 0, 0);
-}
+export default function Solve(grid: number[][]): boolean | null {
+  const timeLimit = 3000;
+  let solved = false;
+  const startTime = Date.now();
 
-// Utility function to print the solved grid
-// function print(grid : number[][] | string[][]) {
-//   for (let i = 0; i < 9; i++) {
-//     for (let j = 0; j < 9; j++) {
-//       document.write(grid[i][j], ' ');
-//     }
-//     document.write('</br>');
-//   }
-// }
+  function attemptSolve() {
+    if (Date.now() - startTime < timeLimit) {
+      solved = SolveSudoku(grid, 0, 0);
+    }
+  }
+
+  attemptSolve();
+
+  // Set a timeout to terminate if the time limit is exceeded
+  const timer = setTimeout(() => {
+    if (!solved) {
+      console.log(`Time limit of ${timeLimit} ms exceeded.`);
+      return null;
+    }
+  }, timeLimit);
+
+  // Clear the timeout if solved within the time limit
+  if (solved) {
+    clearTimeout(timer);
+    return true;
+  }
+
+  return null; // Return null if the time limit was exceeded
+}
 
 // Driver Code
 
@@ -108,6 +124,3 @@ let grid = [
   [0, 0, 0, 0, 0, 0, 0, 7, 4],
   [0, 0, 5, 2, 0, 6, 3, 0, 0],
 ];
-
-// if (Solve(grid)) print(grid);
-// else document.write('No solution exists', '</br>');

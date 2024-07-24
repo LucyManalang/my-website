@@ -49,25 +49,30 @@ export const Sudoku: React.FC = () => {
           ? board[rowIndex][colIndex]
           : '';
         return (
-          <input
-            onChange={handleValueChange}
-            name={`${rowIndex}-${colIndex}`}
+          <div
             key={`${rowIndex}-${colIndex}`}
-            type="number"
-            min="1"
-            step="1"
-            max="9"
             className={clsx(
-              'flex items-center justify-center w-10 h-10 border-[0.5px] border-neutral/15 text-center bg-transparent',
+              'flex items-center justify-center w-10 h-10 border-[0.5px] border-neutral/15 text-center bg-transparent rounded-none',
               {
-                'border-r-2 !border-r-neutral/100':
+                'border-r-2 border-r-neutral/80':
                   (colIndex + 1) % 3 === 0 && colIndex !== 8,
               },
             )}
-            defaultValue={value}
-            value={value}
-            autoComplete="off"
-          />
+          >
+            <input
+              onChange={handleValueChange}
+              name={`${rowIndex}-${colIndex}`}
+              key={`${rowIndex}-${colIndex}`}
+              type="number"
+              min="1"
+              step="1"
+              max="9"
+              className="flex align-center justify-center text-center w-full h-full border-none bg-transparent outline-none"
+              defaultValue={value}
+              value={value}
+              autoComplete="off"
+            />
+          </div>
         );
       });
     },
@@ -75,14 +80,15 @@ export const Sudoku: React.FC = () => {
   );
 
   return (
-    <div className="w-min">
+    <div className="w-min mt-2">
       <div className="w-min">
         {board.map((row, rowIndex) => (
           <div
             key={rowIndex}
             id={`${rowIndex}`}
             className={clsx('flex flex-row', {
-              'border-b-2': (rowIndex + 1) % 3 === 0 && rowIndex !== 8,
+              'border-b-2 border-b-neutral/80':
+                (rowIndex + 1) % 3 === 0 && rowIndex !== 8,
             })}
           >
             {columns(row, rowIndex)}

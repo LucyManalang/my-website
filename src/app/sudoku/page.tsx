@@ -85,31 +85,12 @@ const Page = () => {
         </ul>
         <h2>Showcase:</h2>
         <Sudoku />
-
-        {/* <div className="inline-flex gap-5">
-          <div>
-            <p>Brute Force Solver:</p>
-            <Image
-              className="rounded-lg"
-              src="/res/BruteForce.gif"
-              alt="Brute force sudoku solver"
-              width={200}
-              height={200}
-            ></Image>
-          </div>
-          <div>
-            <p>Greedy Solver:</p>
-            <Image
-              className="rounded-lg"
-              src="/res/Greedy.gif"
-              alt="Greedy sudoku solver"
-              width={200}
-              height={200}
-            ></Image>
-          </div>
-        </div> */}
         <div className="pt-5 w-min text-text text-4xl">
-          <Link className="hover:text-secondary" href="" target="_blank">
+          <Link
+            className="hover:text-secondary"
+            href="https://github.com/LucyManalang/221-Sudoku-Implementation"
+            target="_blank"
+          >
             <PiGithubLogoLight />
           </Link>
         </div>
