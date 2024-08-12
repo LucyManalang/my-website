@@ -53,7 +53,7 @@ export const Sudoku: React.FC = () => {
           <div
             key={`${rowIndex}-${colIndex}`}
             className={clsx(
-              'flex items-center justify-center w-10 h-10 border-[0.5px] border-neutral/15 text-center bg-transparent rounded-none',
+              'flex items-center justify-center w-9 h-9 border-[0.5px] border-neutral/15 text-center bg-transparent rounded-none',
               {
                 'border-r-2 border-r-neutral/80':
                   (colIndex + 1) % 3 === 0 && colIndex !== 8,

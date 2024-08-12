@@ -86,7 +86,7 @@ const App = () => {
                   />
                   Macalester College{' '}
                 </Link>
-                and I am based in Oakland, CA.
+                and I am from Oakland, CA.
               </p>
             </div>
             <div className="m-5">{socialList}</div>
@@ -134,14 +134,18 @@ const App = () => {
             </li>
             <li>
               <p>
-                Data Structures Preceptor{':'} January 2024 {'→ '}Present
+                Data Structures Preceptor{':'} January 2024 {'→ '}May 2024
               </p>
             </li>
             <li>
-              <p>Data Structures Head Preceptor{':'} Begins August 2024</p>
+              <p>
+                Data Structures Lead Preceptor{':'} August 2024 {'→ '}Present
+              </p>
             </li>
             <li>
-              <p>Resident Advisor{':'} Begins August 2024</p>
+              <p>
+                Resident Advisor{':'} August 2024 {'→ '}Present
+              </p>
             </li>
           </ul>
           <h2>Fun Info:</h2>
