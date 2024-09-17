@@ -105,10 +105,9 @@ const App = () => {
           <h1>About Me:</h1> <br />
           <h2>Quick Info:</h2>
           <p>
-            I am a rising sophomore at Macalester College and I am highly
-            motivated and enthusiastic about computer programming. I am
-            currently working as an RA and as a lead teacher{"'"}s assistant at
-            Macalester College.
+            I am a sophomore at Macalester College and I am highly motivated and
+            enthusiastic about computer programming. I am currently working as
+            an RA and as a head teacher{"'"}s assistant at Macalester College.
           </p>
           <h2>My Skills as a Programmer:</h2>
           <p>
@@ -120,10 +119,10 @@ const App = () => {
           <h2>Community:</h2>
           <p>
             I am also very community oriented, as I am an RA for the 2024-2045
-            academic year where I have built a community for incoming first-year
-            students. I also am co-leading Macalester{"'"}s Class of 2028
-            Discord Server and Instagram Page to allow incoming first-years to
-            meet each other before the school year begins.
+            academic year where I have fostered a community for incoming
+            first-year students. I also am co-leading Macalester{"'"}s Class of
+            2028 Discord Server and Instagram Page to allow incoming first-years
+            to meet each other before the school year begins.
           </p>
           <h2>Work Experience:</h2>
           <ul className="list-disc pl-4">
@@ -139,12 +138,12 @@ const App = () => {
             </li>
             <li>
               <p>
-                Data Structures Lead Preceptor{':'} August 2024 {'→ '}Present
+                Data Structures Head Preceptor{':'} August 2024 {'→ '}Present
               </p>
             </li>
             <li>
               <p>
-                Resident Advisor{':'} August 2024 {'→ '}Present
+                Resident Assistant{':'} August 2024 {'→ '}Present
               </p>
             </li>
           </ul>
