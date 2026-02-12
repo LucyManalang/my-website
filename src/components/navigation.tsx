@@ -8,8 +8,9 @@ import DarkMode from '../components/darkmode';
 export default function Navigation() {
   const navItems = [
     { name: 'About', tag: '#about-me', id: 1 },
-    { name: 'Projects', tag: '#projects', id: 2 },
-    { name: 'Contact', tag: '#contact', id: 3 },
+    { name: 'Experience', tag: '#resume', id: 2 },
+    { name: 'Projects', tag: '#projects', id: 3 },
+    { name: 'Contact', tag: '#contact', id: 4 },
   ];
 
   const navList = navItems.map((item) => (
