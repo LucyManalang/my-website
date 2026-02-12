@@ -4,7 +4,7 @@ import Link from 'next/link';
 const projectList = [
   {
     title: 'Personal Trainer',
-    image: '/res/trainer.png',
+    image: '/res/Trainer.webp',
     link: '/personal-trainer',
     description:
       'A personal trainer app for tracking workouts, routines, and progress.',
